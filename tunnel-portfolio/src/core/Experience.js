@@ -57,6 +57,13 @@ export default class Experience {
     // Show "click to play" hint
     const hint = document.getElementById('click-hint')
     if (hint) hint.style.display = 'flex'
+
+    // E key → try to interact with coal carts
+    window.addEventListener('interact', () => {
+      if (this.player && this.world && this.world.coalCarts) {
+        this.world.coalCarts.handleInteract(this.player.body.position)
+      }
+    })
   }
 
   _tick() {

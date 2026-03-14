@@ -19,7 +19,7 @@ export default class Torch {
 
   _build() {
     // Main spot light — cone of torch light
-    this.spot = new THREE.SpotLight(0xff8c30, 50, 28, Math.PI / 6, 0.45, 1.2)
+    this.spot = new THREE.SpotLight(0xff8c30, 120, 55, Math.PI / 5, 0.35, 1.0)
     this.spot.castShadow = true
     this.spot.shadow.mapSize.set(512, 512)
 
@@ -29,7 +29,7 @@ export default class Torch {
     this.scene.add(this.spot)
 
     // Warm glow around player's hand
-    this.glow = new THREE.PointLight(0xff5500, 5, 8)
+    this.glow = new THREE.PointLight(0xff5500, 10, 14)
     this.scene.add(this.glow)
 
     // Visible flame dot
@@ -79,8 +79,8 @@ export default class Torch {
 
     // Flicker
     const flicker = Math.sin(t * 13) * 0.6 + Math.sin(t * 7.3) * 0.4 + Math.random() * 0.3
-    this.spot.intensity  = 45 + flicker * 4
-    this.glow.intensity  =  4 + flicker * 1
+    this.spot.intensity  = 110 + flicker * 10
+    this.glow.intensity  =   9 + flicker * 2
     this.flame.scale.setScalar(0.9 + flicker * 0.15)
   }
 }

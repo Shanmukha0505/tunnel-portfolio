@@ -267,6 +267,8 @@ export default class Graveyard {
     this.scene.add(new THREE.Points(geo, mat))
   }
 
+  update(delta) {}
+
   // Called by PlayerBody for floor raycasting
   getFloorObjects() {
     return this.floorMeshes
