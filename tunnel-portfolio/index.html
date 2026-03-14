@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Into the Pipeline — Shanmukha Paluri</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+
+    <!-- Zone 00: Loading Screen -->
+    <div id="loading-screen">
+      <div id="loading-inner">
+        <div id="loading-title">ENTERING THE MINE</div>
+        <div id="mine-cart-track">
+          <div id="mine-cart-bar"></div>
+        </div>
+        <div id="loading-percent">0%</div>
+        <div id="loading-hint">put on headphones.</div>
+      </div>
+    </div>
+
+    <!-- Click to play hint (shows after loading) -->
+    <div id="click-hint">
+      <div id="click-hint-inner">
+        <p>CLICK TO ENTER THE MINE</p>
+        <small>WASD to move &nbsp;·&nbsp; SHIFT to run &nbsp;·&nbsp; E to interact</small>
+      </div>
+    </div>
+
+    <!-- WebGL Canvas -->
+    <canvas id="tunnel-canvas"></canvas>
+
+    <!-- Project Card Overlay (Zone 03) -->
+    <div id="project-card" class="hidden">
+      <button id="project-close">✕</button>
+      <div id="project-card-inner">
+        <h2 id="project-title"></h2>
+        <p id="project-desc"></p>
+        <div id="project-tags"></div>
+        <a id="project-link" href="#" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- Contact overlay (Zone 04) -->
+    <div id="contact-overlay" class="hidden">
+      <div id="contact-inner">
+        <p class="contact-tag">you made it through the pipeline.</p>
+        <h2>Let's Build Something.</h2>
+        <div class="contact-links">
+          <a href="mailto:shanmukhapaluri@gmail.com">shanmukhapaluri@gmail.com</a>
+          <a href="https://github.com/Shanmukha0505" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/shanmukha-paluri" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
