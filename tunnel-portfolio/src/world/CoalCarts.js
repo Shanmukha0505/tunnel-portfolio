@@ -9,7 +9,7 @@ const PROJECTS = [
   {
     id:    'quantum',
     name:  'QUANTUM PLATFORM',
-    z:     -30,
+    z:     -55,
     color: 0x9933ff,
     title: 'LLM Orchestration & Quantum Platform',
     tech:  'FastAPI · LangChain · n8n · React · Python',
@@ -24,7 +24,7 @@ const PROJECTS = [
   {
     id:    'risk',
     name:  'RISK PIPELINE',
-    z:     -52,
+    z:     -62,
     color: 0xff6600,
     title: 'Risk Analytics Pipeline',
     tech:  'Databricks · PySpark · AWS · Delta Lake · Redshift',
@@ -39,7 +39,7 @@ const PROJECTS = [
   {
     id:    'skin',
     name:  'SKIN CLASSIFIER',
-    z:     -72,
+    z:     -69,
     color: 0x00cc88,
     title: 'Skin Lesion Classifier',
     tech:  'EfficientNetB2 · TensorFlow · Docker · ISIC 2019',

@@ -92,15 +92,14 @@ export default class SkillWalls {
     const tex     = new THREE.CanvasTexture(canvas)
     const face    = new THREE.Mesh(
       new THREE.PlaneGeometry(1.32, 1.72),
-      new THREE.MeshBasicMaterial({ map: tex, transparent: true })
+      new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide })
     )
-    face.position.set(side === 'left' ? 0.05 : -0.05, 0, 0)
-    face.rotation.y = side === 'left' ? Math.PI / 2 : -Math.PI / 2
+    face.position.set(0.05, 0, 0)
     group.add(face)
 
-    // Position on wall
+    // Position on wall — face inward toward center of tunnel
     group.position.set(x, 1.6, z)
-    group.rotation.y = side === 'left' ? Math.PI / 2 : -Math.PI / 2
+    group.rotation.y = side === 'left' ? -Math.PI / 2 : Math.PI / 2
 
     this.scene.add(group)
   }

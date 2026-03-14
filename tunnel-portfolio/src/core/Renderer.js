@@ -31,8 +31,7 @@ export default class Renderer {
 
     this.instance.toneMapping         = THREE.ACESFilmicToneMapping
     this.instance.toneMappingExposure  = 0.8
-    this.instance.shadowMap.enabled    = true
-    this.instance.shadowMap.type       = THREE.PCFSoftShadowMap
+    this.instance.shadowMap.enabled    = false  // disabled for performance
     this.instance.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.instance.setSize(this.sizes.width, this.sizes.height)
     this.instance.setClearColor(0x000000, 1)
@@ -51,9 +50,9 @@ export default class Renderer {
     //    strength, radius, threshold
     this.bloomPass = new UnrealBloomPass(
       new THREE.Vector2(w, h),
-      1.2,   // strength  — how bright the glow
-      0.6,   // radius    — how wide the glow spreads
-      0.15   // threshold — only pixels brighter than this bloom
+      0.5,   // strength  — reduced, less over-glow
+      0.4,   // radius    — tighter glow
+      0.55   // threshold — higher = only very bright things bloom
     )
     this.composer.addPass(this.bloomPass)
 

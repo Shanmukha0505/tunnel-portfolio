@@ -24,7 +24,7 @@ export default class Camera {
       75,
       this.sizes.width / this.sizes.height,
       0.1,
-      200
+      120
     )
     // Start behind where player spawns, looking toward tunnel
     this.instance.position.set(0, 3, 13)

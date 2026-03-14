@@ -21,6 +21,7 @@ export default class Experience {
     this.canvas = canvas
 
     this.scene  = new THREE.Scene()
+    this.scene.fog = new THREE.FogExp2(0x000000, 0.038)  // hides far objects, kills spoilers
     this.time   = new Time()
     this.sizes  = { width: window.innerWidth, height: window.innerHeight }
 

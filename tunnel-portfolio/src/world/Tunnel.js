@@ -58,8 +58,8 @@ export default class Tunnel {
     // ── Rail tracks on the floor ──────────────────
     this._buildRails(group)
 
-    // ── Hanging lanterns every 14 units ──────────
-    for (let z = -18; z > -88; z -= 14) {
+    // ── Hanging lanterns every 22 units (fewer = better perf) ───
+    for (let z = -18; z > -88; z -= 22) {
       this._addHangingLantern(group, z)
     }
 

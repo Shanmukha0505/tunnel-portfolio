@@ -6,7 +6,7 @@
 import * as THREE from 'three'
 
 const BONE_MAT = new THREE.MeshStandardMaterial({ color: 0xd4c9a8, roughness: 0.8 })
-const EYE_MAT  = new THREE.MeshBasicMaterial({ color: 0xff0000 })  // red glow
+const EYE_MAT  = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0xff0000, emissiveIntensity: 2.0 })
 
 // Job types — each has a different idle animation
 export const JOB = {
@@ -77,10 +77,9 @@ export default class Skeleton {
     this.jaw.position.y = 1.5
     this.group.add(this.jaw)
 
-    // Red eye glow light inside skull — blooms beautifully
-    this.eyeLight = new THREE.PointLight(0xff1100, 0.4, 1.2)
-    this.eyeLight.position.set(this.x, this.y + 1.67, this.z)
-    this.scene.add(this.eyeLight)
+    // No point light per skeleton — emissive eyes bloom via post-processing instead
+    // Much better for performance with 6 skeletons
+    this.eyeLight = null
 
     // Left arm (upper + lower)
     this.armLGroup = new THREE.Group()
@@ -201,16 +200,9 @@ export default class Skeleton {
       case JOB.MANAGER:   this._animManager();   break
     }
 
-    // Eye light follows head
-    if (this.eyeLight) {
-      const worldPos = new THREE.Vector3()
-      this.head.getWorldPosition(worldPos)
-      this.eyeLight.position.copy(worldPos)
-      const pulse = Math.sin(this._t * 3) * 0.15
-      this.eyeLight.intensity = this._alert
-        ? 1.8 + pulse          // bright red when alert
-        : 0.3 + pulse * 0.3    // dim idle glow
-    }
+    // Pulse eye emissive intensity — blooms through post-processing
+    const pulse = 1.5 + Math.sin(this._t * 3) * 0.5
+    EYE_MAT.emissiveIntensity = this._alert ? pulse * 2 : pulse * 0.4
 
     // Alert — face player when close
     if (this._alert) {
