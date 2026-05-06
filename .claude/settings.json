@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/shanmukh/Documents/GitHub/tunnel-portfolio remote -v)",
+      "Bash(npm run *)",
+      "Bash(npm install *)"
+    ]
+  }
+}
